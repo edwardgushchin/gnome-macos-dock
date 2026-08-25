@@ -5,8 +5,6 @@
 **A reproducible, macOS-inspired GNOME dock with real blur, per-monitor app
 filtering, hover magnification, and a curated WhiteSur icon theme.**
 
-[Русская версия](README.ru.md)
-
 [![CI](https://github.com/edwardgushchin/gnome-macos-dock/actions/workflows/ci.yml/badge.svg)](https://github.com/edwardgushchin/gnome-macos-dock/actions/workflows/ci.yml)
 [![Latest release](https://img.shields.io/github/v/release/edwardgushchin/gnome-macos-dock)](https://github.com/edwardgushchin/gnome-macos-dock/releases)
 [![License: GPL-3.0](https://img.shields.io/github/license/edwardgushchin/gnome-macos-dock)](LICENSE)
