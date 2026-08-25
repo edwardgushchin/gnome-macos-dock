@@ -6,6 +6,11 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- Refined the Codex Desktop cloud geometry to match the app reference while
+  preserving the WhiteSur container and 40 px Dock proportions.
+
 ## [1.0.0] - 2026-08-26
 
 ### Added
