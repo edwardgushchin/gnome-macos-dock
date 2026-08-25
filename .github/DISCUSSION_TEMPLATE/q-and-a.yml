@@ -1,0 +1,23 @@
+title: "[Question] "
+labels:
+  - Q&A
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post secrets, backup files, or unredacted personal configuration.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Distro, GNOME version, Wayland/X11, and monitor layout.
+  - type: textarea
+    id: attempts
+    attributes:
+      label: What have you tried?

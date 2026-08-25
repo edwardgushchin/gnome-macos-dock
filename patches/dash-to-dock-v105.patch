@@ -1,0 +1,65 @@
+--- a/dash.js
++++ b/dash.js
+@@ -792,7 +792,12 @@
+         // Apps supposed to be in the dash
+         const newApps = [];
+ 
+-        const {showFavorites} = settings;
++        // Keep pinned applications on the main monitor only. Secondary docks
++        // still show a favorite when it has a window on that monitor because
++        // it is then added through the monitor-filtered running-apps list.
++        const showFavorites = settings.showFavorites &&
++            (!settings.multiMonitor ||
++             this._monitorIndex === Main.layoutManager.primaryIndex);
+         if (showFavorites)
+             newApps.push(...Object.values(favorites));
+ 
+@@ -817,8 +822,13 @@
+             });
+         }
+ 
++        // Keep mounts and Trash on the main monitor. Secondary docks are
++        // intentionally limited to applications with windows on that monitor.
++        const showLocations = !settings.multiMonitor ||
++            this._monitorIndex === Main.layoutManager.primaryIndex;
++
+         this._signalsHandler.removeWithLabel(Labels.SHOW_MOUNTS);
+-        if (dockManager.removables) {
++        if (dockManager.removables && showLocations) {
+             this._signalsHandler.addWithLabel(Labels.SHOW_MOUNTS,
+                 dockManager.removables, 'changed', this._queueRedisplay.bind(this));
+             dockManager.removables.getApps().forEach(removable => {
+@@ -829,7 +839,7 @@
+             oldApps = oldApps.filter(app => !app.location || app.isTrash);
+         }
+ 
+-        if (dockManager.trash) {
++        if (dockManager.trash && showLocations) {
+             const trashApp = dockManager.trash.getApp();
+             if (!newApps.includes(trashApp))
+                 newApps.push(trashApp);
+--- a/docking.js
++++ b/docking.js
+@@ -712,7 +712,10 @@
+             this._intellihideIsEnabled = false;
+         } else {
+             this._autohideIsEnabled = settings.autohide;
+-            this._intellihideIsEnabled = settings.intellihide;
++            // Keep secondary monitor docks as edge-triggered autohide panels.
++            // The main dock alone stays visible until a maximized window needs
++            // the screen space.
++            this._intellihideIsEnabled = settings.intellihide && this.isMain;
+         }
+ 
+         if (this._autohideIsEnabled)
+--- a/stylesheet.css
++++ b/stylesheet.css
+@@ -1476,3 +1476,8 @@
+   background-image: url("./media/highlight_stacked_bg_h.svg");
+   background-position: 0px 0px;
+   background-size: contain; }
++
++/* Local WhiteSur-style offset: keep the floating dock above the screen edge. */
++#dashtodockContainer.bottom #dash,
++#dashtodockContainer.bottom.shrink #dash {
++  margin-bottom: 6px; }

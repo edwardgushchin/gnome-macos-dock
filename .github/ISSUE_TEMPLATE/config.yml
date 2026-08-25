@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Usage questions and visual ideas
+    url: https://github.com/edwardgushchin/gnome-macos-dock/discussions
+    about: Ask for installation help or discuss customization.
+  - name: Security vulnerability
+    url: https://github.com/edwardgushchin/gnome-macos-dock/security/advisories/new
+    about: Report suspected vulnerabilities privately.
+  - name: Troubleshooting guide
+    url: https://github.com/edwardgushchin/gnome-macos-dock/blob/main/docs/TROUBLESHOOTING.md
+    about: Check common GNOME, blur, monitor, and icon problems.

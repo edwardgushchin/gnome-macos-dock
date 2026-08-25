@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If this preset helps your GNOME setup, please cite the repository."
+title: "GNOME macOS Dock"
+type: software
+version: 1.0.0
+date-released: 2026-08-26
+license: GPL-3.0-only
+repository-code: "https://github.com/edwardgushchin/gnome-macos-dock"
+url: "https://github.com/edwardgushchin/gnome-macos-dock"
+authors:
+  - family-names: Gushchin
+    given-names: Eduard
+    alias: edwardgushchin

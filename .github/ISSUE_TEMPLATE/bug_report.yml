@@ -1,0 +1,102 @@
+name: Bug report
+description: Report a reproducible installer, restore, dock, blur, motion, or icon problem.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Search existing issues first. Never attach a backup or unredacted personal configuration.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: This is not a security vulnerability; security reports use the private advisory form.
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Installer or backup
+        - Restore
+        - Dash to Dock behavior
+        - Blur My Shell
+        - Flourish motion
+        - Multi-monitor behavior
+        - WhiteSur or custom icons
+        - Documentation or CI
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Project version
+      placeholder: "1.0.0 or commit SHA"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include distro, GNOME version, Wayland/X11, GPU, and monitor topology.
+      placeholder: |
+        Distro:
+        GNOME Shell:
+        Session:
+        GPU:
+        Monitors and primary display:
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem description
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest exact sequence.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: status
+    attributes:
+      label: Redacted status output
+      description: Paste `./status.sh` output. Remove personal data.
+      render: shell
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add a tightly cropped screenshot or upstream link if useful.
+
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow the project's Code of Conduct.
+          required: true

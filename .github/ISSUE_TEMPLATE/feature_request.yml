@@ -1,0 +1,74 @@
+name: Feature request
+description: Propose a focused behavior, compatibility, safety, or documentation improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Explain the user need and the smallest useful change. Prefer regular extension settings over new source patches.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I searched existing issues and discussions.
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Appearance
+        - Dock behavior
+        - Multi-monitor behavior
+        - Motion
+        - Icons
+        - Installer or restore
+        - Compatibility
+        - Documentation or CI
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+
+  - type: input
+    id: upstream
+    attributes:
+      label: Upstream reference
+      description: Link the relevant extension setting, source, release, or issue.
+
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility impact
+      description: Note affected GNOME versions, sessions, and monitor layouts.
+
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow the project's Code of Conduct.
+          required: true
